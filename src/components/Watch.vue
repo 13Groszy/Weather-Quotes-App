@@ -15,7 +15,7 @@ export default {
         }
     },
     methods:{
-    showLocaleTime: function () {
+    showLocaleTime() {
       var time = this;
       setInterval(function () {
        time.localTime = new Date().toLocaleTimeString();
