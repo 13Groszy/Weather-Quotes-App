@@ -2,17 +2,20 @@
   <img alt="Vue logo" src="./assets/logo.png">
   <Watch />
   <Weather />
+  <Quotes />
 </template>
 
 <script>
 import Weather from './components/Weather.vue'
 import Watch from './components/Watch.vue'
+import Quotes from './components/Quotes.vue'
 
 export default {
   name: 'App',
   components: {
     Weather,
     Watch,
+    Quotes,
   }
 }
 </script>
