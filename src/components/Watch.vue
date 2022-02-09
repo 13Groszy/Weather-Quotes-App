@@ -1,12 +1,34 @@
 <template>
     <div>
-        <h3 @click="getWeather()">12:30</h3>
-        <p><span>Monday</span><span>2 Feb 2022</span></p>
+    <p>{{localTime}}</p>
+    <p>{{date}}</p>
     </div>
 </template>
 
 <script>
 export default {
     name: 'Watch',
+    data() {
+        return {
+            localTime: '',
+            date:'',
+        }
+    },
+    methods:{
+    showLocaleTime: function () {
+      var time = this;
+      setInterval(function () {
+       time.localTime = new Date().toLocaleTimeString();
+       let date = new Date();
+       let day = date.getDate();
+       let month = date.getMonth();
+       let year = date.getFullYear();
+       time.date = day + '/' + month + '/' + year
+    }, 1000);
+   }
+  },
+ created () {
+  this.showLocaleTime()
+        }
 }
 </script>

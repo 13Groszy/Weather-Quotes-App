@@ -1,15 +1,18 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <Watch />
   <Weather />
 </template>
 
 <script>
 import Weather from './components/Weather.vue'
+import Watch from './components/Watch.vue'
 
 export default {
   name: 'App',
   components: {
     Weather,
+    Watch,
   }
 }
 </script>
