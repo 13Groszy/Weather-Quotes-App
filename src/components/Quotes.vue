@@ -1,7 +1,7 @@
 <template>
     <div class="quote">
         <p>{{quote}}</p>
-        <p>~ {{author}}</p>
+        <p>{{author}}</p>
     </div>
 </template>
 

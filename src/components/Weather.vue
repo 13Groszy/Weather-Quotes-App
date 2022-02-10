@@ -2,11 +2,10 @@
     <div>
         <h1>CHECK WEATHER</h1>
         <input v-model="cityName" type="text">
-        <button @click="getWeather()" type="submit">CHECK</button>
+        <button @click="getWeather(), passName()" type="submit">CHECK</button>
         <div v-if="storage === 1" class="results">
-            <p class="cityName">{{name}}</p>
-            <p class="localTime">Local Time: {{localTime}}</p>
-            <p class="region">Country: {{country}}</p>
+            <p>Local Time: {{localTime}}</p>
+            <p>Country: {{country}}</p>
             <p>Weather: {{weather}}</p>
             <p>Temperature: {{tempC}} *C</p>
             <p>FeelsLike: {{feelsC}} *C</p>
@@ -32,6 +31,9 @@ export default {
         }
     },
     methods: {
+        passName(){
+        this.$emit('pass-city-name', this.cityName.toUpperCase())
+    },
         async getWeather(){
             const url = "https://weatherapi-com.p.rapidapi.com/current.json?q=" + this.cityName;
             fetch(url, {
@@ -39,11 +41,10 @@ export default {
 	"headers": {
 		"x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
 		"x-rapidapi-key": "e33e7e2ed0msh892b2efa6865100p1017fcjsn1fc34ba00b5c"
-	}
+	},
 })
 .then(response => response.json())
 .then(response => {
-    this.name = response.location.name
     this.country = response.location.country
     this.localTime = response.location.localtime
     this.weather = response.current.condition.text
