@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div  v-if="this.passedCity != ''">
         <h2>{{passedCity}}</h2>
     </div>
 </template>
