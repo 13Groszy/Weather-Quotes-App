@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="horizontal__wrapper">
     <Watch />
-    <City :passed-city='this.cityName' />
+    <City :passed-city='this.locationName' />
   </div>
-  <Weather @pass-city-name="passCityName" />
-  <Quotes />
+    <Quotes />
+    <Weather @pass-city-name="passCityName" />
 </template>
 
 <script>
@@ -17,7 +17,8 @@ export default {
   name: 'App',
   data() {
     return {
-    cityName: '',
+    locationName: '',
+    bgclr: 'red'
     }
   },
   props:{
@@ -31,19 +32,25 @@ export default {
   },
   methods: {
     passCityName(id){
-      this.cityName = id
-    }
+      this.locationName = id
+    },
   }
 }
 </script>
 
 <style lang="scss" scope>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width:90vw;
+  margin: auto;
+    .horizontal__wrapper{
+      display: flex;
+      justify-content: center;
+      gap:10vw;
+    }
 }
 </style>
