@@ -1,16 +1,17 @@
 <template>
     <div>
+        <h3>Enter a city name to find out the weather forecast</h3>
         <div class="input__wrapper">
             <input v-on:keyup.enter="getWeather()" v-model="cityName" type="text" placeholder="Search for a city">
-            <button @click="getWeather()" type="submit">FIND</button>
+            <button @click="getWeather()" type="submit">Search</button>
         </div>
         <div v-if="storage === 1" class="results">
-            <p>Local Time: {{localTime}}</p>
-            <p>Country: {{country}}</p>
-            <p>Conditions: {{weather}}</p>
-            <p>Temperature: {{tempC}}°C</p>
-            <p>FeelsLike: {{feelsC}}°C</p>
-            <p>Pressure: {{pressure}} hPa</p>
+            <p>Local Time: <span>{{localTime}}</span></p>
+            <p>Country: <span>{{country}}</span></p>
+            <p>Conditions: <span>{{weather}}</span></p>
+            <p>Temperature: <span>{{tempC}}°C</span></p>
+            <p>FeelsLike: <span>{{feelsC}}°C</span></p>
+            <p>Pressure: <span>{{pressure}} hPa</span></p>
         </div>
     </div>
 </template>
@@ -64,23 +65,46 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+
 .input__wrapper{
-margin-top: 1rem;
-}
-input{
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid grey;
-    color:#000;
-    width:8rem;
-    &::placeholder{
+    margin-top: 1rem;
+    input{
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid grey;
         color:#000;
+        width:15rem;
+        font-size:1rem;
+        margin-right: 2vw;
+
+        &::placeholder{
+            color:rgb(61, 61, 61);
+        }
+
+        &:focus{
+        outline: none;
+        }
+    }
+
+    button{
+        background-color: rgb(8, 151, 233);
+        border:0;
+        border-radius: 5px;
+        padding:0.5rem;
+        margin-top:1rem;
     }
 }
-button{
-    background-color: transparent;
-    border:0;
-    padding:0.5rem;
-    border-radius: 5px;
+.results{
+    margin-top:5vh;
+
+    p{
+        margin:1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    span{
+        font-size:1.2rem;
+        font-weight: normal;
+    }
 }
 </style>
