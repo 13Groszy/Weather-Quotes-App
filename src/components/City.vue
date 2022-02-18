@@ -1,6 +1,6 @@
 <template>
     <div  v-if="this.passedCity != ''">
-        <h2>{{passedCity}}</h2>
+        <p>{{passedCity}}</p>
     </div>
 </template>
 
@@ -10,3 +10,14 @@ export default {
     props: ['passedCity']
 }
 </script>
+
+<style lang="scss" scoped>
+div{
+    display: flex
+}
+p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin:auto;
+}
+</style>

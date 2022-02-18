@@ -32,3 +32,9 @@ export default {
         }
 }
 </script>
+
+<style lang="scss" scoped>
+p{
+    font-size: 1.5rem;
+}
+</style>

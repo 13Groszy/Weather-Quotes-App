@@ -37,15 +37,17 @@ export default {
     &__wrapper{
         display: flex;
         flex-direction: column;
-        min-width: 300px;
-        width:90%;
+        min-width: 280px;
+        max-width: 600px;
         background-color: #fff;
         top:30%;
         border-radius: 5px;
         margin:auto;
         position: relative;
+        padding:1rem;
         &__header{
             text-align: center;
+            margin-bottom: 1rem;
         }
         &__button{
             background-color: transparent;

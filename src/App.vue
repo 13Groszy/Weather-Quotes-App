@@ -1,7 +1,7 @@
 <template>
   <h1>Simple Weather App</h1>
   <div class="horizontal__wrapper">
-    <Watch @click="changeBg()" />
+    <Watch />
     <City :passed-city='this.locationName' />
   </div>
     <Quotes />
@@ -35,31 +35,20 @@ export default {
       this.locationName = id
     },
     changeBg(){
-      let bg = document.querySelector('.img');
+      let bg = document.querySelector('.bg__img');
       setInterval(function(){
         if (bg.classList.contains("one")) {
           bg.classList.add('two');
           bg.classList.remove('one');
-        }else if (bg.classList.contains("two")) {
-          bg.classList.add('three');
-          bg.classList.remove('two');
-          }
-          else if (bg.classList.contains("three")) {
-          bg.classList.add('four');
-          bg.classList.remove('three');
-          }
-          else if (bg.classList.contains("four")) {
-          bg.classList.add('five');
-          bg.classList.remove('four');
-          }
+        }
         else{
           bg.classList.add('one');
-          bg.classList.remove('five');
+          bg.classList.remove('two');
         }
       },10000)
     }
   },
-  mounted(){
+  created(){
     this.changeBg();
   }
 }
@@ -79,41 +68,46 @@ $mediaMidWidth: 800px;
   text-align: center;
   margin: auto;
   padding-top:5vh;
+  width:600px;
+  max-width:90%;
     .horizontal__wrapper{
       display: flex;
       justify-content: center;
       gap:10vw;
+      margin-bottom: 3vh;
     }
   h1{
     margin-bottom: 5vh;
   }
 }
-.img{
+.bg__img{
   position: absolute;
   width:100%;
   height: 100vh;
   z-index:-2;
-  opacity:0.6;
+  opacity:0.4;
   transition: linear 1s;
 }
 .one{
   background:url('./assets/img_mobile/1.jpg')center no-repeat;
   background-size: cover;
+   @media (max-width: $mediaMinWidth) {
+    background: white;
+  }
+  @media (min-width: $mediaMidWidth) {
+    background:url('./assets/img_desktop/1.jpg')center no-repeat;
+  }
+
 }
 .two{
   background:url('./assets/img_mobile/2.jpg')center no-repeat;
   background-size: cover;
-}
-.three{
-  background:url('./assets/img_mobile/3.jpg')center no-repeat;
-  background-size: cover;
-}
-.four{
-  background:url('./assets/img_mobile/4.jpg')center no-repeat;
-  background-size: cover;
-}
-.five{
-  background:url('./assets/img_mobile/5.jpg')center no-repeat;
-  background-size: cover;
+  @media (max-width: $mediaMinWidth) {
+    background: white;
+  }
+  @media (min-width: $mediaMidWidth) {
+    background:url('./assets/img_desktop/2.jpg')center no-repeat;
+  }
+  
 }
 </style>
