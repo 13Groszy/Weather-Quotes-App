@@ -35,15 +35,16 @@ export default {
       this.locationName = id
     },
     changeBg(){
-      let bg = document.querySelector('.bg__img');
+      let bg_one = document.querySelector('.one');
+      let bg_two = document.querySelector('.two');
       setInterval(function(){
-        if (bg.classList.contains("one")) {
-          bg.classList.add('two');
-          bg.classList.remove('one');
+        if (bg_one.classList.contains("opacity_zero")) {
+          bg_one.classList.remove("opacity_zero");
+          bg_two.classList.add("opacity_zero")
         }
         else{
-          bg.classList.add('one');
-          bg.classList.remove('two');
+          bg_two.classList.remove("opacity_zero");
+          bg_one.classList.add("opacity_zero")
         }
       },10000)
     }
@@ -83,31 +84,38 @@ $mediaMidWidth: 800px;
 .bg__img{
   position: absolute;
   width:100%;
-  height: 100vh;
-  z-index:-2;
+  z-index:-1;
   opacity:0.4;
   transition: linear 1s;
 }
+
 .one{
   background:url('./assets/img_mobile/1.jpg')center no-repeat;
   background-size: cover;
+  height: 100vh;
+  
    @media (max-width: $mediaMinWidth) {
     background: white;
   }
   @media (min-width: $mediaMidWidth) {
     background:url('./assets/img_desktop/1.jpg')center no-repeat;
   }
-
 }
+
 .two{
   background:url('./assets/img_mobile/2.jpg')center no-repeat;
   background-size: cover;
+  height: 100vh;
+  
   @media (max-width: $mediaMinWidth) {
     background: white;
   }
   @media (min-width: $mediaMidWidth) {
     background:url('./assets/img_desktop/2.jpg')center no-repeat;
   }
-  
+}
+
+.opacity_zero{
+    opacity: 0;
 }
 </style>
