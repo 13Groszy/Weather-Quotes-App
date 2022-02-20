@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Enter a city name to find out the weather forecast</h3>
+        <h2>Enter a city name to find out the weather forecast</h2>
         <div class="input__wrapper">
             <input v-on:keyup.enter="getWeather()" v-model="cityName" type="text" placeholder="Search for a city">
             <button @click="getWeather()" type="submit">Search</button>
